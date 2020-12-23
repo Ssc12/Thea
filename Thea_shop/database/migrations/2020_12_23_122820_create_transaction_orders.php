@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTransactionOrder extends Migration
+class CreateTransactionOrders extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateTransactionOrder extends Migration
      */
     public function up()
     {
-        Schema::create('transaction_order', function (Blueprint $table) {
+        Schema::create('transaction_orders', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
             $table->date('date');
@@ -29,6 +29,6 @@ class CreateTransactionOrder extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('transaction_order');
+        Schema::dropIfExists('transaction_orders');
     }
 }

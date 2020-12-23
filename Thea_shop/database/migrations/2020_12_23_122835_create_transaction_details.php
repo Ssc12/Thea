@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTransactionDetail extends Migration
+class CreateTransactionDetails extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateTransactionDetail extends Migration
      */
     public function up()
     {
-        Schema::create('transaction_detail', function (Blueprint $table) {
+        Schema::create('transaction_details', function (Blueprint $table) {
             $table->primary(['transaction_id','tea_id']);
             $table->unsignedBigInteger('transaction_id');
             $table->foreignId('tea_id');
@@ -31,6 +31,6 @@ class CreateTransactionDetail extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('transaction_detail');
+        Schema::dropIfExists('transaction_details');
     }
 }
