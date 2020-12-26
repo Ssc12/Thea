@@ -58,18 +58,15 @@
     list-style: none;
     width: fit-content;
     height: 100px;
+    line-height: 100px;
+    color: #000;
+
     text-align: center;
     padding: 0 30px;
 }
 
-
 .nav-bar .first{
     border-left: 0;
-}
-
-.nav-bar li a{
-    line-height: 100px;
-    color: #000;
 }
 
 .nav-bar li:hover{
@@ -98,5 +95,121 @@
     background-color: #92D426;
     border: none;
     color: #000;
-    
 }
+
+.green-bg{
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    
+    background-color: rgba(202, 249, 130, 0.5);
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+}
+
+.green-bg .logo{
+    margin: 30px 0 100px 0;
+}
+
+.green-bg .logo img{
+    width: 200px;
+    height: auto;
+}
+
+.green-bg .center{
+    display: flex;
+    width: 1280px;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.green-bg .info img{
+    width: 375px;
+    height: auto;
+    border: 1px solid grey;
+}
+
+.green-bg .login{
+    width: 350px;
+    height: 400px;
+    padding: 30px;
+    background-color: #ffffff;
+    border: 1px solid black;
+}
+
+.green-bg .register{
+    width: 350px;
+    height: 450px;
+    padding: 30px;
+    background-color: #ffffff;
+    border: 1px solid black;
+}
+
+.green-bg .login div{
+    margin: 20px 0;
+}
+
+.green-bg .login .title{
+    font-weight: bold;
+    font-size: 25px;
+
+    margin-top: 0;
+    margin-bottom: 50px;
+}
+
+.green-bg .login .reg{
+    font-size: 12px;
+    text-align: center;
+}
+
+.green-bg .login button{
+    width: 330px;
+    padding: 10px 0;
+
+    font-size: 20px;
+    margin-top: 40px;
+}
+
+.green-bg .register div{
+    margin: 10px 0;
+}
+
+.green-bg .register .title{
+    font-weight: bold;
+    font-size: 25px;
+
+    margin-top: 0;
+    margin-bottom: 50px;
+}
+
+.green-bg .register .regulations{
+    margin: 40px 0 10px 0;
+    font-size: 12px;
+    text-align: center;
+    width: 330px;
+}
+
+.green-bg .register button{
+    width: 330px;
+    padding: 10px 0;
+
+    font-size: 20px;
+}
+
+.green-bg .label{
+    font-size: 18px;
+}
+
+.green-bg .input{
+    width: 330px;
+    border: 0;
+    border-bottom: 1px solid black;
+}
+
+.green-bg .input:focus{
+    outline: none;
+}
+

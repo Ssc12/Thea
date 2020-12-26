@@ -27,12 +27,35 @@
             </div>
             <div class="nav-bar">
                 <ul>
-                    <li class="first">
-                        <a href="{{url('/')}}" class="link">Login</a>
-                    </li>
-                    <li>
-                        <a href="{{url('/')}}" class="link">Register</a>
-                    </li>
+                    @guest
+                        <a href="{{url('/login')}}">
+                            <li class="first link">
+                                Login
+                            </li>
+                        </a>
+                        <a href="{{url('/register')}}">
+                            <li class="first link">
+                                Register
+                            </li>
+                        </a>
+                    @endguest
+                    @auth
+                        <a href="{{url('/')}}">
+                            <li class="first link">
+                                View Profile
+                            </li>
+                        </a>
+                        <a href="{{url('/')}}">
+                            <li class="first link">
+                                View Cart
+                            </li>
+                        </a>
+                        <a href="{{url('/logout')}}">
+                            <li class="first link">
+                                Log Out
+                            </li>
+                        </a>
+                    @endauth
                 </ul>
             </div>
         </div>
