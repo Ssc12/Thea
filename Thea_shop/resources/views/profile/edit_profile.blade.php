@@ -9,7 +9,7 @@
                 @if ($user->profile_pic == null)
                     <img src="{{asset('image/profile/profile.png')}}" alt="">
                 @else
-                    <img src="{{'/storage/'.asset($user->profile_pic)}}" alt="">
+                <img src="{{asset('/storage/'.$user->profile_pic)}}" alt="">
                 @endif
                 <input type="file" name="picture" accept=".jpg,.jpeg,.png" id="" class="">
             </div>

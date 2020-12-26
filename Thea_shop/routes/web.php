@@ -26,5 +26,5 @@ Route::post('/register', 'UserController@register');
 Route::get('/logout','UserController@logout')->name('logout');
 
 Route::get('/profile','UserController@profile')->name('profile');
-Route::get('/profile/edit','UserController@editProfile');
+Route::get('/profile/edit','UserController@editProfile')->name('edit_profile');
 Route::post('/profile/save','UserController@saveProfile');

@@ -55,7 +55,9 @@ class UserController extends Controller
         $user->phone_number = $request->phone_number;
         $user->save();
 
-        return redirect()->route('home');
+        Auth::login($user);
+
+        return redirect()->route('edit_profile');
     }
 
     public function logout(){

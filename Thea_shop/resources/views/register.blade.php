@@ -52,6 +52,11 @@
                     <div class="button">
                         <button type="submit" value="register" class="">Register</Button>
                     </div>
+                    <div class="error">
+                        @if($errors->any())
+                            {{$errors->first()}}
+                        @endif
+                    </div>
                 </form>
             </div>
         </div>
