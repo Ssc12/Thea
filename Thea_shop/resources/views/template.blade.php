@@ -40,7 +40,7 @@
                         </a>
                     @endguest
                     @auth
-                        <a href="{{url('/')}}">
+                        <a href="{{url('/profile')}}">
                             <li class="first link">
                                 View Profile
                             </li>

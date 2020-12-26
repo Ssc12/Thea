@@ -213,3 +213,97 @@
     outline: none;
 }
 
+.white-box{
+    width: 1280px;
+    background-color: white;
+    border: 1px solid black;
+    padding: 30px;
+
+    box-shadow: 3px 2px #888888;
+    height: fit-content;
+}
+
+.flex{
+    display: flex;
+}
+
+.profile-pic img{
+    width: 400px;
+    height: 400px;
+
+    object-fit: cover;
+}
+
+.profile-pic input{
+    font-size: 15px;
+    width: 200px;
+    margin-top:15px;
+}
+
+.profile-info{
+    margin-left: 30px;
+    text-align: left;
+
+    width: 800px;
+    height: 360px;
+    display: grid;
+    grid-template-columns: 20% 2% 78%;
+    
+}
+
+.profile-info .name{
+    font-size: 25px;
+    display: flex;
+    align-self: center;
+}
+
+.profile input[type="button"]{
+    font-size: 15px;
+    padding: 5px 20px;
+    margin-top: 20px;
+}
+
+.profile button{
+    font-size: 15px;
+    padding: 6px 20px;
+
+    margin-top: 20px;
+    border: 1px solid grey;
+    border-radius: 3px;
+}
+
+.profile .input{
+    border: 0;
+    border-bottom: 1px solid grey;
+}
+
+.profile .input:focus{
+    outline: none;
+}
+
+.profile label, .email, .dob, .gender, .address, .phone{
+    margin: 0;
+    display: flex;
+    align-self: center;
+}
+
+.gender_input{
+    width: 200px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.gender_input .one-line{
+    display: flex;
+    align-items: center;
+}
+
+.one-line input{
+    margin: 0 8px;
+}
+
+.error{
+    font-size: 15px;
+    color:red;
+    font-style: italic;
+}

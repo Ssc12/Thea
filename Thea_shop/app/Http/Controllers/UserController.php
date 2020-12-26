@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage; 
 use Auth;
 
 class UserController extends Controller
@@ -60,5 +61,48 @@ class UserController extends Controller
     public function logout(){
         Auth::logout();
         return redirect()->route('home');
+    }
+
+    public function profile(){
+        $user = Auth::user();
+        if($user == null) return redirect()->route('home');
+
+        return view('profile.profile',[
+            'user' => $user,
+        ]);
+    } 
+
+    public function editProfile(){
+        $user = Auth::user();
+        if($user == null) return redirect()->route('home');
+
+        return view('profile.edit_profile',[
+            'user' => $user,
+        ]);
+    }
+
+    public function saveProfile(Request $request){
+        $user = Auth::user();
+        if($user == null) return redirect()->route('home');
+
+        $this->validate($request, [
+            'dob' => 'date_format:Y-m-d|before:today',
+            'phone_number' => 'numeric',
+            'picture' => 'mimes:jpg,jpeg,png'
+        ]);
+
+        $user->gender = $request->gender;
+        $user->dob = $request->dob;
+        $user->address = $request->address;
+        $user->phone_number = $request->phone_number;
+        if($request->picture){
+            if($user->profile_pic != null) {
+                Storage::disk('public')->delete($user->profile_pic);
+            }
+            $user->profile_pic = $request->file('picture')->store('/profile/'.$user->name, 'public');
+        }
+        $user->save();
+
+        return redirect()->route('profile');
     }
 }
