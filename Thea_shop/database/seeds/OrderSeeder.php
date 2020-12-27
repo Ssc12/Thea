@@ -13,7 +13,7 @@ class OrderSeeder extends Seeder
     {
         //
         $transaction = new \App\Order();
-        $transaction->user_id = 1;
+        $transaction->user_id = 2;
         $transaction->save();
 
         $detail = new \App\Detail();

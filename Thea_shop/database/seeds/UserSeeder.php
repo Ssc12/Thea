@@ -11,21 +11,39 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        //
-        $user = new \App\User();
-        $user->name = "Darwis";
-        $user->email = "darwis@gmail.com";
-        $user->password = "darwis";
-        $user->phone_number = "082355551647";
-        $user->role_id = 1;
-        $user->save();
-
+        //admin
         $user = new \App\User();
         $user->name = "Steven";
         $user->email = "steven@gmail.com";
-        $user->password = "steven";
-        $user->phone_number = "081255551647";
+        $user->profile_pic = "image/profile/profile.png";
+        $user->password = Hash::make('steven');
+        $user->gender = "male";
+        $user->address = "jalan kebon jeruk no.15a, jakarta barat";
+        $user->phone_number = "087884567891";
         $user->role_id = 2;
         $user->save();
+    
+        // member
+        $user = new \App\User();
+        $user->name = "Darwis";
+        $user->email = "darwis@gmail.com";
+        $user->profile_pic = "image/profile/profile.png";
+        $user->password = Hash::make('darwis');
+        $user->gender = "male";
+        $user->address = "jalan kemanggisan no.23a, jakarta barat";
+        $user->phone_number = "087881234567";
+        $user->role_id = 1;
+        $user->save();
+    
+        $user = new \App\User();
+        $user->name = "Kily";
+        $user->email = "kily@gmail.com";
+        $user->profile_pic = "image/profile/profile.png";
+        $user->password = Hash::make('kily');
+        $user->gender = "female";
+        $user->address = "jalan kemanggisan no.17a, jakarta barat";
+        $user->phone_number = "087882234587";
+        $user->role_id = 1;
+        $user->save();    
     }
 }
