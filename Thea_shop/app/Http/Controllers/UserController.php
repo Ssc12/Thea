@@ -29,12 +29,11 @@ class UserController extends Controller
         ]);
 
         $user = \App\User::where('email',$request->email)->where('password',$request->password)->first();
+        if($user == null)return redirect()->route('login');
+        
         Auth::login($user);
+        return redirect()->route('home');
             
-        if(Auth::user()){
-            return redirect()->route('home');
-        }else 
-            return redirect()->route('login');
     }
 
     public function register(Request $request){
@@ -69,7 +68,7 @@ class UserController extends Controller
         $user = Auth::user();
         if($user == null) return redirect()->route('home');
 
-        return view('profile.profile',[
+        return view('user.profile.profile',[
             'user' => $user,
         ]);
     } 
@@ -78,7 +77,7 @@ class UserController extends Controller
         $user = Auth::user();
         if($user == null) return redirect()->route('home');
 
-        return view('profile.edit_profile',[
+        return view('user.profile.edit_profile',[
             'user' => $user,
         ]);
     }

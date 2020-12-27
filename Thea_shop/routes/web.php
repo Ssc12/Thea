@@ -28,3 +28,6 @@ Route::get('/logout','UserController@logout')->name('logout');
 Route::get('/profile','UserController@profile')->name('profile');
 Route::get('/profile/edit','UserController@editProfile')->name('edit_profile');
 Route::post('/profile/save','UserController@saveProfile');
+
+Route::get('/history','TransactionController@history')->name('user_history');
+Route::get('/history/{id}','TransactionController@details')->name('transaction_detail');

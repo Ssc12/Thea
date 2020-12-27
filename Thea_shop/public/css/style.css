@@ -51,18 +51,25 @@
 .nav-bar ul{
     display: flex;
     margin: 0;
+    padding: 0;
 }
 
 .nav-bar li{
     display: inline-block;
+    width: 150px;
     list-style: none;
-    width: fit-content;
     height: 100px;
     line-height: 100px;
     color: #000;
 
     text-align: center;
-    padding: 0 30px;
+
+    padding: 0 20px;
+    margin: 0;
+}
+
+.nav-bar ul li{
+    padding: 0;
 }
 
 .nav-bar .first{
@@ -71,6 +78,17 @@
 
 .nav-bar li:hover{
     background-color: #92D426;
+}
+
+.nav-bar li:hover ul{
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-bar ul ul{
+    display: none;
+    z-index: 1;
+    color: #fff;
 }
 
 .search{
