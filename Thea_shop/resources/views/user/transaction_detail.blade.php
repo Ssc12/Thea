@@ -2,9 +2,17 @@
 
 @section('content')
     @foreach ($order->Detail as $detail)
-        <img src="{{asset($detail->image)}}" alt="" style="width:250px; height:auto">
-        {{$detail->name}}
-        {{$detail->price}}
-        {{$detail->pivot->quantity}}
+        <div class="detail-box">
+            <img src="{{asset($detail->image)}}" alt="">
+            <div class="info">                
+                <div>Nama : {{$detail->name}}</div>
+                <div>Harga satuan : Rp. {{$detail->price}}</div>
+                <div>Quantity : {{$detail->pivot->quantity}} @</div>
+                <div>Total : Rp. {{$detail->price * $detail->pivot->quantity}}</div>
+            </div>
+        </div>
     @endforeach
+    <div class="total_price">
+        Total : Rp. {{$order->total_price}}
+    </div>
 @endsection
