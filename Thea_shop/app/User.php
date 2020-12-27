@@ -46,12 +46,10 @@ class User extends Authenticatable
     }
 
     public function Cart(){
-        $var = $this->belongsToMany(Tea::class,'carts','user_id','tea_id')->withPivot('quantity')->withTimestamps();
-        return $var->pivot;
+        return $this->belongsToMany(Tea::class,'carts','user_id','tea_id')->withPivot('quantity')->withTimestamps();
     }
 
     public function Review(){
-        $var = $this->belongsToMany(Tea::class,'reviews','user_id','tea_id')->withPivot('rating','review')->withTimestamps();
-        return $var->pivot;
+        return $this->belongsToMany(Tea::class,'reviews','user_id','tea_id')->withPivot('rating','review')->withTimestamps();
     }
 }

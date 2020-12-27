@@ -51,18 +51,31 @@
 .nav-bar ul{
     display: flex;
     margin: 0;
+    padding: 0;
 }
 
 .nav-bar li{
     display: inline-block;
+    width: 150px;
     list-style: none;
-    width: fit-content;
     height: 100px;
     line-height: 100px;
     color: #000;
 
     text-align: center;
-    padding: 0 30px;
+
+    padding: 0 20px;
+    margin: 0;
+}
+
+.nav-bar ul ul li{
+    background-color: #CAF982;
+    border-bottom: solid 1px rgb(128, 187, 33);
+}
+
+.nav-bar ul li{
+    padding: 0;
+    z-index: 100;
 }
 
 .nav-bar .first{
@@ -71,6 +84,15 @@
 
 .nav-bar li:hover{
     background-color: #92D426;
+}
+
+.nav-bar li:hover ul{
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-bar ul ul{
+    display: none;
 }
 
 .search{
@@ -306,4 +328,51 @@
     font-size: 15px;
     color:red;
     font-style: italic;
+}
+
+.detail-box{
+    background-color: white;
+    border: solid 1px grey;
+    box-shadow: 3px 2px #888888;
+    height: fit-content;
+
+    display: flex;
+}
+
+.detail-box img{
+    width: 500px;
+    height: auto;
+}
+
+.detail-box .info{
+    display: block;
+    text-align: left;
+    padding: 20px 10px;
+}
+
+.detail-box .info div{
+    margin: 10px 0;
+}
+
+.total_price{
+    width: max-content;
+    float: right;
+    text-align: right;
+    padding: 15px 30px;
+    background-color: #CAF982;
+    border: rgb(140, 204, 36) solid 1px;
+
+    margin-top: 40px;
+}
+
+.history-block{
+    background-color: white;   
+    padding: 30px 20px;
+    text-align: left;
+    border: 1px solid black;
+    border-bottom: 0;
+}
+
+.last-history-block{
+    border-bottom: 1px solid black;
 }

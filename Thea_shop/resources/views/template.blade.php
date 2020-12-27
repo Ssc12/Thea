@@ -40,21 +40,30 @@
                         </a>
                     @endguest
                     @auth
-                        <a href="{{url('/profile')}}">
-                            <li class="first link">
-                                View Profile
-                            </li>
-                        </a>
                         <a href="{{url('/')}}">
                             <li class="first link">
-                                View Cart
+                                Cart
                             </li>
                         </a>
-                        <a href="{{url('/logout')}}">
-                            <li class="first link">
-                                Log Out
-                            </li>
-                        </a>
+                        <li>{{Auth::user()->name}}
+                            <ul>
+                                <a href="{{url('/profile')}}">
+                                    <li class="first link">
+                                        Profile
+                                    </li>
+                                </a>
+                                <a href="{{url('/history')}}">
+                                    <li class="first link">
+                                        History
+                                    </li>
+                                </a>
+                                <a href="{{url('/logout')}}">
+                                    <li class="first link">
+                                        Log Out
+                                    </li>
+                                </a>
+                            </ul>
+                        </li>
                     @endauth
                 </ul>
             </div>
