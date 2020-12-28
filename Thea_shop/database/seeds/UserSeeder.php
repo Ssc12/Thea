@@ -17,7 +17,7 @@ class UserSeeder extends Seeder
         $user->email = "steven@gmail.com";
         $user->profile_pic = "image/profile/profile.png";
         $user->password = Hash::make('steven');
-        $user->gender = "male";
+        $user->gender = "Male";
         $user->address = "jalan kebon jeruk no.15a, jakarta barat";
         $user->phone_number = "087884567891";
         $user->role_id = 2;
@@ -29,7 +29,7 @@ class UserSeeder extends Seeder
         $user->email = "darwis@gmail.com";
         $user->profile_pic = "image/profile/profile.png";
         $user->password = Hash::make('darwis');
-        $user->gender = "male";
+        $user->gender = "Male";
         $user->address = "jalan kemanggisan no.23a, jakarta barat";
         $user->phone_number = "087881234567";
         $user->role_id = 1;
@@ -40,7 +40,7 @@ class UserSeeder extends Seeder
         $user->email = "kily@gmail.com";
         $user->profile_pic = "image/profile/profile.png";
         $user->password = Hash::make('kily');
-        $user->gender = "female";
+        $user->gender = "Female";
         $user->address = "jalan kemanggisan no.17a, jakarta barat";
         $user->phone_number = "087882234587";
         $user->role_id = 1;
