@@ -31,3 +31,6 @@ Route::post('/profile/save','UserController@saveProfile');
 
 Route::get('/history','TransactionController@history')->name('user_history');
 Route::get('/history/{id}','TransactionController@details')->name('transaction_detail');
+
+// di get nanti tambahin id
+Route::get('/cart/user/{id}','CartController@cartView')->name('cart');
