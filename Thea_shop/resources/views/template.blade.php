@@ -8,8 +8,9 @@
 
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <link rel="stylesheet" href="{{asset('css/style2.css')}}">
+    <link rel="stylesheet" href="{{asset('css/style3.css')}}">
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
-
+    
 </head>
 <body class="body">
     
@@ -21,7 +22,7 @@
                 </a>
             </div>
             <div class="search">
-                <form class="form-inline my-2 my-lg-0 center-row" method="GET" action="{{ url('/') }}">
+                <form class="form-inline my-2 my-lg-0 center-row" method="GET" action="{{ url('/tea') }}">
                     <input class="form-control" type="text" name="q" placeholder="Search Here" style="width:500px; margin-right:10px;"> 
                     <button class="btn btn-primary" type="submit">Search</button>
                 </form>

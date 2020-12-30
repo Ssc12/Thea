@@ -1,0 +1,168 @@
+
+.Iheader{
+    text-align: left;
+    background-color: #CAF982;
+    padding: 8px;
+    border: 1px solid
+}
+
+.Ibody{
+    border-style: solid;
+    border-width: 0px 1px 1px 1px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7.5px;
+}
+
+.ICard{
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid;
+    width: 240px;
+    position: relative;
+    margin : 6.5px;
+    transition: 0.5s;
+}
+
+.ICard span{
+    display: block;
+    text-align: center;
+    position: absolute;
+    background-color: rgba(0, 0, 0, .7);
+    color: white;
+    top: 0;
+    bottom: 0;
+    left : 0;
+    right:  0;
+    line-height: 250px;
+    opacity: 0;
+    transition: 0.5s;
+    font-size: 15px;
+}
+
+.ICard a:hover span{
+    opacity: 1;
+}
+
+.ICard:hover{
+    transform: scale(.8);
+}
+
+.ICard a{
+    text-decoration: none !important;
+}
+
+.ICard img{
+    height: 200px;
+    width: 100%;
+    object-position: center;
+}
+
+.ICard-body{
+    text-align: left;
+    font-size: 15px;
+    padding: 10px;
+    border-style: solid;
+    border-width: 1px 0px 0px 0px;
+    background-color: white;
+    color: black;
+}
+
+.Icontainer{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    padding: 6.5px;
+    padding-right: 0px;
+}
+
+.DetailContainer{
+    box-shadow: 0px 0px 1px 1px black;
+    padding: 30px;
+    text-align: left;
+}
+
+.detail-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 400px;
+}
+
+
+.detail-name{
+    font-size: 50px;
+    font-weight: bold;
+    text-shadow: 5px 5px 1px white;
+}
+
+
+.detail-img{
+    box-shadow: 0px 0px 1px 1px black;
+}
+
+.detail-img img{
+    width: 100%;
+    height: 400px;
+}
+
+.descContainer{
+    margin-top: 30px;
+}
+
+.descContainer h3{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.commentContainer{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    box-shadow: 0px 0px 1px 1px black;
+    padding: 30px;
+}
+
+.commentContainer h3{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.comment-header{
+    display: flex;
+}
+
+.comment-header div{
+    margin:5px
+}
+
+.review-profile{
+    height: 30px;
+    width: 30px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 50%;
+}
+
+.review-profile img{
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+}
+
+
+.date{
+    font-size: 12px;
+}
+
+
+
+
+
+
+
