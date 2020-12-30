@@ -7,6 +7,7 @@
     <title>Thea Shop</title>
 
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('css/style2.css')}}">
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
 
 </head>
