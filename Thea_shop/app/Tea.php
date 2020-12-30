@@ -13,8 +13,7 @@ class Tea extends Model
     }
 
     public function Review(){
-        $var = $this->belongsToMany(Tea::class,'reviews','tea_id','user_id')->withPivot('rating','review')->withTimestamps();
-        return $var->pivot;
+        return $this->belongsToMany(User::class,'reviews','tea_id','user_id')->withPivot('rating','review')->withTimestamps();
     }
 
     public function Detail(){
