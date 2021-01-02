@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage; 
 use Auth;
+use Hash;
 
 class UserController extends Controller
 {
@@ -28,10 +29,11 @@ class UserController extends Controller
             'password' => 'required|min:6',
         ]);
 
-        $user = \App\User::where('email',$request->email)->where('password',$request->password)->first();
-        if($user == null)return redirect()->route('login');
-        
-        Auth::login($user);
+        $user = \App\User::where('email',$request->email)->first();
+        if(Hash::check($request->password, $user->password)){
+            Auth::login($user);
+        }else return redirect()->route('login');
+
         return redirect()->route('home');
             
     }
