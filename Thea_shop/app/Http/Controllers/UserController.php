@@ -30,6 +30,7 @@ class UserController extends Controller
         ]);
 
         $user = \App\User::where('email',$request->email)->first();
+        if($user == null) return redirect()->route('login');
         if(Hash::check($request->password, $user->password)){
             Auth::login($user);
         }else return redirect()->route('login');
