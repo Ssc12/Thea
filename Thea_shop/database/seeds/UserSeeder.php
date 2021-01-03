@@ -15,7 +15,6 @@ class UserSeeder extends Seeder
         $user = new \App\User();
         $user->name = "Steven";
         $user->email = "steven@gmail.com";
-        $user->profile_pic = "image/profile/profile.png";
         $user->password = Hash::make('steven');
         $user->gender = "Male";
         $user->address = "jalan kebon jeruk no.15a, jakarta barat";
@@ -27,7 +26,6 @@ class UserSeeder extends Seeder
         $user = new \App\User();
         $user->name = "Darwis";
         $user->email = "darwis@gmail.com";
-        $user->profile_pic = "image/profile/profile.png";
         $user->password = Hash::make('darwis');
         $user->gender = "Male";
         $user->address = "jalan kemanggisan no.23a, jakarta barat";
@@ -38,7 +36,6 @@ class UserSeeder extends Seeder
         $user = new \App\User();
         $user->name = "Kily";
         $user->email = "kily@gmail.com";
-        $user->profile_pic = "image/profile/profile.png";
         $user->password = Hash::make('kily');
         $user->gender = "Female";
         $user->address = "jalan kemanggisan no.17a, jakarta barat";

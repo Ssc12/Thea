@@ -333,15 +333,25 @@
 .detail-box{
     background-color: white;
     border: solid 1px grey;
-    box-shadow: 3px 2px #888888;
     height: fit-content;
+
+    margin: 20px 0;
 
     display: flex;
 }
 
-.detail-box img{
+.detail-box .img{
     width: 500px;
-    height: auto;
+    height: 300px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.detail-box .img img{
+    height: 250px;
+    width: auto;
 }
 
 .detail-box .info{
@@ -361,8 +371,6 @@
     padding: 15px 30px;
     background-color: #CAF982;
     border: rgb(140, 204, 36) solid 1px;
-
-    margin-top: 40px;
 }
 
 .history-block{

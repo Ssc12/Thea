@@ -3,7 +3,9 @@
 @section('content')
     @foreach ($order->Detail as $detail)
         <div class="detail-box">
-            <img src="{{asset($detail->image)}}" alt="">
+            <div class="img">
+                <img src="{{asset($detail->image)}}" alt="">
+            </div>
             <div class="info">                
                 <div>Nama : {{$detail->name}}</div>
                 <div>Harga satuan : Rp. {{$detail->price}}</div>
