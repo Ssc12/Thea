@@ -34,7 +34,7 @@ Route::get('/history','TransactionController@history')->name('user_history');
 Route::get('/history/{id}','TransactionController@details')->name('transaction_detail');
 
 // nanti ganti apabila sudah pake Auth
-Route::get('/cart/user/{id}','CartController@cartView')->name('cart');
+Route::get('/cart/user/','CartController@cartView')->name('cart');
 Route::post('/cart/add/tea/{id}','CartController@addToCart');
 Route::post('/cart/update/tea/{id}','CartController@updateCart');
 Route::post('/cart/delete/tea/{id}','CartController@deleteCart');

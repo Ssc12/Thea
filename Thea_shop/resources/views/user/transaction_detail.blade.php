@@ -9,7 +9,7 @@
             <div class="info">                
                 <div>Nama : {{$detail->name}}</div>
                 <div>Harga satuan : Rp. {{$detail->price}}</div>
-                <div>Quantity : {{$detail->pivot->quantity}} @</div>
+                <div>Quantity : {{$detail->pivot->quantity}} </div>
                 <div>Total : Rp. {{$detail->price * $detail->pivot->quantity}}</div>
             </div>
         </div>

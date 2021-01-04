@@ -63,7 +63,7 @@
                                 </ul>
                             </li>
                         @else
-                            <a href="{{url('/')}}">
+                            <a href="{{url('/cart/user/')}}">
                                 <li class="first link">
                                     Cart
                                 </li>

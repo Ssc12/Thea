@@ -36,8 +36,8 @@
 
                 @if (Auth::check() && Auth::user()->role_id == 1)
                     <div class="mt-3">
-                        <form action="" method="POST">
-                            @csrf
+                        <form method="POST" action="{{ url('/cart/add/tea/'.$tea->id) }}" role="form">
+                            {{ csrf_field() }}
                             <div class="form-group d-flex">
                                 <div>
                                     <label for="">Quantity : </label>

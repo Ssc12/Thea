@@ -16,7 +16,7 @@
             </div>
 
             {{-- buat list cart --}}
-            {{-- <div class="cart-list"> --}}
+            <div class="cart-list">
             @foreach ($carts as $cart)
                 <div class="cart-grid-container">
                     <div class="cart-image">
@@ -44,7 +44,7 @@
                     </div>  
                 </div>
             @endforeach
-            {{-- </div> --}}
+            </div>
 
             {{-- buat checkout--}} 
             <div class="checkout-sidebar">
