@@ -42,30 +42,52 @@
                         </a>
                     @endguest
                     @auth
-                        <a href="{{url('/')}}">
-                            <li class="first link">
-                                Cart
+                        @if (Auth::user()->role_id == 2)
+                            <a href="{{url('/')}}">
+                                <li class="first link">
+                                    View Orders 
+                                </li>
+                            </a>
+                            <li>{{Auth::user()->name}}
+                                <ul>
+                                    <a href="{{url('/')}}">
+                                        <li class="first link">
+                                            View All User
+                                        </li>
+                                    </a>
+                                    <a href="{{url('/logout')}}">
+                                        <li class="first link">
+                                            Log Out
+                                        </li>
+                                    </a>
+                                </ul>
                             </li>
-                        </a>
-                        <li>{{Auth::user()->name}}
-                            <ul>
-                                <a href="{{url('/profile')}}">
-                                    <li class="first link">
-                                        Profile
-                                    </li>
-                                </a>
-                                <a href="{{url('/history')}}">
-                                    <li class="first link">
-                                        History
-                                    </li>
-                                </a>
-                                <a href="{{url('/logout')}}">
-                                    <li class="first link">
-                                        Log Out
-                                    </li>
-                                </a>
-                            </ul>
-                        </li>
+                        @else
+                            <a href="{{url('/')}}">
+                                <li class="first link">
+                                    Cart
+                                </li>
+                            </a>
+                            <li>{{Auth::user()->name}}
+                                <ul>
+                                    <a href="{{url('/profile')}}">
+                                        <li class="first link">
+                                            Profile
+                                        </li>
+                                    </a>
+                                    <a href="{{url('/history')}}">
+                                        <li class="first link">
+                                            History
+                                        </li>
+                                    </a>
+                                    <a href="{{url('/logout')}}">
+                                        <li class="first link">
+                                            Log Out
+                                        </li>
+                                    </a>
+                                </ul>
+                            </li>
+                        @endif
                     @endauth
                 </ul>
             </div>
