@@ -14,7 +14,6 @@ class Order extends Model
     }
 
     public function Detail(){
-        return $this->belongsToMany(Tea::class, 'transaction_details', 'transaction_id', 'tea_id')->withPivot('quantity')->withTimestamps();
-        
+        return $this->belongsToMany(Tea::class, 'transaction_details', 'transaction_id', 'tea_id')->withPivot('quantity')->withTimestamps(); 
     }
 }

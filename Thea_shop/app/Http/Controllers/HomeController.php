@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Route;
 use Auth;
 use App\Tea;
+use App\User;
 
 class HomeController extends Controller
 {
