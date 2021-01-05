@@ -36,8 +36,8 @@
 
                 @if (Auth::check() && Auth::user()->role_id == 1)
                     <div class="mt-3">
-                        <form action="" method="POST">
-                            @csrf
+                        <form method="POST" action="{{ url('/cart/add/tea/'.$tea->id) }}" role="form">
+                            {{ csrf_field() }}
                             <div class="form-group d-flex">
                                 <div>
                                     <label for="">Quantity : </label>
@@ -90,6 +90,26 @@
 
     <div class="commentContainer">
         <h3>Comment : </h3>
+        
+        @if (Auth::user())
+            <div class="submitComment">
+                <form role="form" method="POST" action="{{ url('tea/'.$tea->id.'/comment') }}">
+                {{ csrf_field() }}
+                    
+                    <div>
+                        Rating
+                        <input type="number" name="rating" id="" min="1" max="5">
+                    </div>
+                    <div>
+                        <div class="label">
+                            Comment :
+                        </div>
+                        <textarea name="comment" id="" cols="119" rows="4"></textarea>
+                    </div>
+                    <button type="submit" value="Login" class="">Comment</Button>
+                </form>
+            </div>
+        @endif
 
         @if ($reviews->count() == 0)
             There is no comment yet

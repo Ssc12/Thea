@@ -8,14 +8,11 @@ use App\User;
 
 class CartController extends Controller
 {
-    public function cartView($id){
-        // if(Auth::user() == null) return redirect()->route('home');
+    public function cartView(){
+        if(Auth::user() == null) return redirect()->route('home');
 
-        // tunggu bisa auth
-        // $id = Auth::id;
-        // $user = Auth::user();
+        $user = Auth::user();
           
-        $user = \App\User::find($id);
         $carts = $user->Cart;
         $total=0;
 
@@ -31,21 +28,17 @@ class CartController extends Controller
     }
 
     public function addToCart($teaId,Request $request){
-        // if(Auth::user() == null) return redirect()->route('home');
+        if(Auth::user() == null) return redirect()->route('home');
 
-        // tunggu bisa auth
-        // $id = Auth::id;
-        // $user = Auth::user();
-
-          // cek quantity gk boleh melebihi stock
+        // cek quantity gk boleh melebihi stock
 
         $this->validate($request, [
             'qty'=>'required|numeric|min:1'
         ]);
         
-        $user = \App\User::find(2);// nanti diubah kalau udh ada auth
+        $user = Auth::user();
         $carts = $user->Cart;
-        $checkcart=null;
+        $checkCart=null;
 
         foreach ($carts as $cart) {
             if($cart->pivot->tea_id == $teaId){
@@ -68,22 +61,18 @@ class CartController extends Controller
             }
         }
         
-        return redirect()->route('viewCart',['id'=>$user->id]);
+        return redirect()->route('cart');
     }
 
     public function updateCart($teaId,Request $request){
-        // if(Auth::user() == null) return redirect()->route('home');
-
-        // tunggu bisa auth
-        // $id = Auth::id;
-        // $user = Auth::user();
+        if(Auth::user() == null) return redirect()->route('home');
 
         // cek quantity gk boleh melebihi stock
         $this->validate($request, [
             'qty'=>'required|numeric|min:1'
         ]);
 
-        $user = \App\User::find(2);// nanti diubah kalau udh ada auth
+        $user = Auth::user();
         $carts = $user->Cart;
 
             foreach ($carts as $cart) {
@@ -93,17 +82,13 @@ class CartController extends Controller
                 }
             }
        
-        return redirect()->route('cart',['id'=>$user->id]);
+        return redirect()->route('cart');
     }
 
     public function deleteCart($teaId){
-        // if(Auth::user() == null) return redirect()->route('home');
+        if(Auth::user() == null) return redirect()->route('home');
 
-        // tunggu bisa auth
-        // $id = Auth::id;
-        // $user = Auth::user();
-
-        $user = \App\User::find(2);// nanti diubah kalau udh ada auth
+        $user = Auth::user();
         $carts = $user->Cart;
 
             foreach ($carts as $cart) {
@@ -112,36 +97,29 @@ class CartController extends Controller
                 }
             }
        
-        return redirect()->route('cart',['id'=>$user->id]);
+        return redirect()->route('cart');
     }
 
     public function deleteAllFromCart(){
-        // if(Auth::user() == null) return redirect()->route('home');
+        if(Auth::user() == null) return redirect()->route('home');
 
-        // tunggu bisa auth
-        // $id = Auth::id;
-        // $user = Auth::user();
-
-        $user = \App\User::find(2);// nanti diubah kalau udh ada auth
+        $user = Auth::user();
         $carts = $user->Cart;
 
             foreach ($carts as $cart) {
                  $cart->pivot->delete();
             }
        
-        return redirect()->route('cart',['id'=>$user->id]);
+        return redirect()->route('cart');
     }
 
     public function checkoutCart(){
-        // if(Auth::user() == null) return redirect()->route('home');
-
-        // tunggu bisa auth
-        // $id = Auth::id;
-        // $user = Auth::user();
+            // kemungkinan akan dihapus beserta method func yang menggunakan method post
+           if(Auth::user() == null) return redirect()->route('home');
 
            // cek quantity gk boleh melebihi stock
-           
-           $user = \App\User::find(2);// nanti diubah kalau udh ada auth
+
+           $user = Auth::user();
            $carts = $user->Cart;
 
            $order = new \App\Order;
@@ -169,6 +147,6 @@ class CartController extends Controller
            $order->total_price = $total;
            $order->save();
 
-           return redirect()->route('cart',['id'=>$user->id]);
+           return redirect()->route('cart');
     }
 }

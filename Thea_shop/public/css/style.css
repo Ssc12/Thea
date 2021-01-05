@@ -384,3 +384,25 @@
 .last-history-block{
     border-bottom: 1px solid black;
 }
+
+.submitComment{
+    margin: 20px 0;
+}
+
+.submitComment div{
+    margin: 8px 0;
+}
+
+.submitComment .comment-box{
+    width: 1220px;
+    height: 150px;
+    
+}
+
+.submitComment input{
+    outline: none;
+}
+
+.submitComment button{
+    float: right;
+}

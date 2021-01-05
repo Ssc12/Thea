@@ -29,7 +29,6 @@ class TeaController extends Controller
             }
 
             $rating /= $reviews->count();
-
         }
 
         return view('tea.detail',compact('tea','rating','reviews'));
