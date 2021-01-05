@@ -57,6 +57,26 @@
                     </div>
                 @endif
 
+                @if (Auth::check() && Auth::user()->role_id == 2)
+                    <div class="mt-3">
+                            @csrf
+                            <div>
+                                <a href="/admin/update/{{$tea->id}}">
+                                    <button type="submit" class="btn btn-primary">
+                                        {{ __('Update Tea') }}
+                                    </button>
+                                  </a>
+
+                                  <a href="/admin/deleteButton{{$tea->id}}">
+                                    <button type="submit" class="btn btn-primary">
+                                        {{ __('Delete Tea') }}
+                                    </button>
+                                  </a>
+                            </div>
+                    </div>
+                @endif
+
+
             </div>
                    
             </div>

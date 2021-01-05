@@ -40,3 +40,14 @@ Route::post('/cart/update/tea/{id}','CartController@updateCart');
 Route::post('/cart/delete/tea/{id}','CartController@deleteCart');
 Route::post('/cart/deleteAll/','CartController@deleteAllFromCart');
 Route::post('/cart/checkout/','CartController@checkoutCart');
+
+//admin
+Route::get('/admin/add', 'HomeController@addTea');
+Route::get('/admin/update/{tea_id}', 'HomeController@updateTea');
+
+Route::post('/admin/addButton', 'TeaController@addTea');
+Route::post('/admin/updateButton/{tea_id}', 'TeaController@updateTea');
+Route::any('/admin/deleteButton{tea_id}', 'TeaController@deleteTea');
+
+Route::get('/admin/transaction', 'TransactionController@viewAllUserTransaction');
+Route::get('/admin/user', 'HomeController@viewAllUser');

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\Order;
+use App\Transaction;
+use App\TransactionDetail;
 
 class TransactionController extends Controller
 {
@@ -27,5 +29,10 @@ class TransactionController extends Controller
             'order' => $id
         ]);
 
+    }
+
+    public function viewAllUserTransaction(){
+        $transaction = Transaction::all();
+        return view('admin.transaction', ['transaction' => $transaction]);
     }
 }

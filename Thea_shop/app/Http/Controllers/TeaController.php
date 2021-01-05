@@ -34,4 +34,52 @@ class TeaController extends Controller
 
         return view('tea.detail',compact('tea','rating','reviews'));
     }
+
+    public function addTea(Request $request){
+        Tea::create([
+            'name' => $request->teaName,
+            'price' => $request->teaPrice,
+            'description' => $request->teaDesc,
+            'stock' => $request->teaStock,
+            'image' => '/image/tea/'.$request->file('image')->getClientOriginalName(),
+        ]);
+
+        $image = $request->file('image');
+        $fileName = $request->file('image')->getClientOriginalName();
+
+        $image->move(public_path('image/tea'), $fileName);
+        return redirect()->route('home');
+    }
+
+    public function deleteTea($tea_id){
+        $tea =Tea::where('id',$tea_id)->first();
+        if ($tea != null) {
+            $tea->delete();
+            return redirect()->route('home')->with(['message'=> 'Successfully deleted!!']);
+        }
+        return redirect()->route('home')->with(['message'=> 'Wrong ID!!']);
+    }
+
+    public function updateTea(Request $request, $tea_id){
+        $tea = Tea::findOrFail($tea_id);
+        
+        if ($request->image == null) {
+            $tea_photo = $tea->image;
+        } else {
+            $imageOriginName = $request->image->getClientOriginalName();
+            $imageFullName = $imageOriginName . '-' . time() . '.' . $request->image->extension();
+            $request->image->move(public_path('image/tea'), $imageFullName);
+            $tea_photo = $imageFullName;
+        }
+
+        $tea = Tea::findOrFail($tea_id)->update([
+            'name' => $request->teaName,
+            'price' => $request->teaPrice,
+            'description' => $request->teaDesc,
+            'stock' => $request->teaStock,
+            'image' => '/image/tea/'.$tea_photo,
+        ]);
+
+        return redirect()->route('home');
+    }
 }

@@ -18,4 +18,8 @@ class Tea extends Model
     public function Detail(){
         return $this->belongsToMany(Order::class, 'transaction_details', 'tea_id', 'transcation_id')->withPivot('quantity')->withTimestamps();
     }
+
+    protected $fillable = [
+        'name', 'price', 'description', 'image', 'stock'
+    ];
 }
