@@ -17,6 +17,7 @@ Route::get('/', 'IndexController@get')->name('home');
 
 Route::get('/tea', 'TeaController@search')->name('search_tea');
 Route::get('/tea/{tea}', 'TeaController@detail')->name('tea_detail');
+Route::post('/tea/{tea}/comment','ReviewController@comment')->name('comment');
 
 Route::get('/login','UserController@loginForm')->name('login');
 Route::post('/login', 'UserController@login');

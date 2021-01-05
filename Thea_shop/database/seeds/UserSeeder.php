@@ -36,7 +36,7 @@ class UserSeeder extends Seeder
         $user = new \App\User();
         $user->name = "Kily";
         $user->email = "kily@gmail.com";
-        $user->password = Hash::make('kily');
+        $user->password = Hash::make('kily12');
         $user->gender = "Female";
         $user->address = "jalan kemanggisan no.17a, jakarta barat";
         $user->phone_number = "087882234587";
