@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'IndexController@get')->name('home');
 
-Route::get('/tea', 'TeaController@search')->name('search_tea');
+Route::get('/tea/search', 'TeaController@search')->name('search_tea');
 Route::get('/tea', 'TeaController@viewAll')->name('view_all');
 Route::get('/tea/{tea}', 'TeaController@detail')->name('tea_detail');
 Route::post('/tea/{tea}/comment','ReviewController@comment')->name('comment');

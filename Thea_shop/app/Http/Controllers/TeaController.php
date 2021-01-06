@@ -26,16 +26,7 @@ class TeaController extends Controller
         
         $reviews = $tea->Review;
     
-        $rating = 0;
-
-        if($reviews->count() != 0){
-            
-            foreach($reviews as $review){
-                $rating += $review->pivot->rating;
-            }
-
-            $rating /= $reviews->count();
-        }
+        $rating = $tea->rating;
 
         return view('tea.detail',compact('tea','rating','reviews'));
     }
