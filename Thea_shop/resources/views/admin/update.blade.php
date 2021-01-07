@@ -5,7 +5,7 @@
     <div class="container mt-4 mb-4 col-12 d-inline-flex p-3 border">
   
         <div class="" style="width: 250px">
-          <img src="{{ url($tea->image) }}" alt="teaImage" style="width: 100%; height: auto">
+          <img src="{{ asset($tea->image) }}" alt="teaImage" style="width: 100%; height: auto">
         </div>
         
         <form class="col" method="post" action="/admin/updateButton/{{$tea->id}}" enctype="multipart/form-data">

@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="detail-img">
-                    <img class="img-fluid" src= {{ asset($tea->image) }} alt="">
+                    <img class="img-fluid" src={{ asset($tea->image) }} alt="">
                 </div>
             </div>
             <div class="col-md-6">

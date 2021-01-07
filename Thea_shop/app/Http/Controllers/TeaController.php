@@ -40,7 +40,7 @@ class TeaController extends Controller
             'price' => $request->teaPrice,
             'description' => $request->teaDesc,
             'stock' => $request->teaStock,
-            'image' => '/image/tea/'.$request->file('image')->getClientOriginalName(),
+            'image' => 'image/tea/'.$request->file('image')->getClientOriginalName(),
         ]);
 
         $image = $request->file('image');
@@ -76,7 +76,7 @@ class TeaController extends Controller
             'price' => $request->teaPrice,
             'description' => $request->teaDesc,
             'stock' => $request->teaStock,
-            'image' => '/image/tea/'.$tea_photo,
+            'image' => 'image/tea/'.$tea_photo,
         ]);
 
         return redirect()->route('home');
