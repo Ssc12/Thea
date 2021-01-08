@@ -50,6 +50,11 @@
                 </div>
             @endforeach
         </div>
+    </div>
 
+    <div>
+        <form class="" style="margin: 20px 0; float:right" method="GET" action="{{ route('view_all') }}">
+            <button class="btn btn-success" type="submit">View All</button>
+        </form>
     </div>
 @endsection

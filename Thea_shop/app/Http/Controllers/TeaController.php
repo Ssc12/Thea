@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Review;
 use App\Tea;
+use Auth;
 use Illuminate\Http\Request;
 
 class TeaController extends Controller
@@ -16,41 +17,41 @@ class TeaController extends Controller
         return view('search', compact('teas'));
     }
 
+    public function viewAll(){
+        $teas = Tea::paginate(15);
+        return view('tea.all_tea', compact('teas'));
+    }
+
     public function detail(Tea $tea){
         
         $reviews = $tea->Review;
     
-        $rating = 0;
-
-        if($reviews->count() != 0){
-            
-            foreach($reviews as $review){
-                $rating += $review->pivot->rating;
-            }
-
-            $rating /= $reviews->count();
-        }
+        $rating = $tea->rating;
 
         return view('tea.detail',compact('tea','rating','reviews'));
     }
 
     public function addTea(Request $request){
-        Tea::create([
-            'name' => $request->teaName,
-            'price' => $request->teaPrice,
-            'description' => $request->teaDesc,
-            'stock' => $request->teaStock,
-            'image' => 'image/tea/'.$request->file('image')->getClientOriginalName(),
-        ]);
+        if(Auth::user() == null) return redirect()->route('home');
+        if(Auth::user()->role_id != 2) return redirect()->route('home');
 
-        $image = $request->file('image');
-        $fileName = $request->file('image')->getClientOriginalName();
+        $tea = new \App\Tea;
+        $tea->name = $request->teaName;
+        $tea->price = $request->teaPrice;
+        $tea->description = $request->teaDesc;
+        $tea->stock = $request->teaStock;
 
-        $image->move(public_path('image/tea'), $fileName);
+        $path = $request->file('image')->store('/image/tea/'.$request->teaName, 'public');
+        $tea->image = "storage/".$path;
+        $tea->save();
+
         return redirect()->route('home');
     }
 
     public function deleteTea($tea_id){
+        if(Auth::user() == null) return redirect()->route('home');
+        if(Auth::user()->role_id != 2) return redirect()->route('home');
+
         $tea =Tea::where('id',$tea_id)->first();
         if ($tea != null) {
             $tea->delete();
@@ -60,6 +61,9 @@ class TeaController extends Controller
     }
 
     public function updateTea(Request $request, $tea_id){
+        if(Auth::user() == null) return redirect()->route('home');
+        if(Auth::user()->role_id != 2) return redirect()->route('home');
+
         $tea = Tea::findOrFail($tea_id);
         
         if ($request->image == null) {

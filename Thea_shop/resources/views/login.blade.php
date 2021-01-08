@@ -18,7 +18,7 @@
                     <img src="{{asset("image/infografis/infografis.png")}}" alt="">
                 </div>
                 <div class="login">
-                    <form role="form" method="POST" action="{{ route('login') }}">
+                    <form role="form" method="POST" action="{{ url('/login') }}">
                     {{ csrf_field() }}
                         <div class="title">
                             Login
