@@ -72,7 +72,7 @@ class TeaController extends Controller
             $imageOriginName = $request->image->getClientOriginalName();
             $imageFullName = $imageOriginName . '-' . time() . '.' . $request->image->extension();
             $request->image->move(public_path('image/tea'), $imageFullName);
-            $tea_photo = $imageFullName;
+            $tea_photo = 'image/tea/'.$imageFullName;
         }
 
         $tea = Tea::findOrFail($tea_id)->update([
@@ -80,7 +80,7 @@ class TeaController extends Controller
             'price' => $request->teaPrice,
             'description' => $request->teaDesc,
             'stock' => $request->teaStock,
-            'image' => 'image/tea/'.$tea_photo,
+            'image' => $tea_photo,
         ]);
 
         return redirect()->route('home');
