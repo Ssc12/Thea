@@ -39,8 +39,8 @@
                             <button type="submit" value="Login" class="">Login</Button>
                         </div>
                         <div class="reg">
-                            Belum punya akun? 
-                            <a href="{{url('/register')}}">Daftar sini</a>
+                            Don't have account yet? 
+                            <a href="{{url('/register')}}">Register Here</a>
                         </div>
                     </form>
                 </div>

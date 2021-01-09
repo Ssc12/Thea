@@ -43,9 +43,15 @@ class CartController extends Controller
         $tea = Tea::find($teaId);
         $teaStock = $tea->stock; 
 
-        $this->validate($request, [
-            'qty'=>'required|numeric|min:1|max:'.$teaStock
-        ]);
+        $validateRules = [ 
+            'quantity'=>'required|numeric|min:1|max:'.$teaStock
+        ];
+    
+        $customMessages = [
+            'max' => 'The Tea :attribute must less than Tea stock'
+        ];
+    
+        $this->validate($request, $validateRules, $customMessages);
         
         $user = Auth::user();
         $carts = $user->Cart;
@@ -61,12 +67,12 @@ class CartController extends Controller
             $cart = new \App\Cart();
             $cart->user_id = $user->id;
             $cart->tea_id = $teaId;
-            $cart->quantity = $request->qty;
+            $cart->quantity = $request->quantity;
             $cart->save();    
         }else{
             foreach ($carts as $cart) {
                 if($cart->pivot->tea_id == $teaId){
-                    $cart->pivot->quantity = $request->qty + $checkCart->pivot->quantity;
+                    $cart->pivot->quantity = $request->quantity + $checkCart->pivot->quantity;
                     $cart->pivot->update();
                 }
             }
@@ -81,16 +87,22 @@ class CartController extends Controller
         $tea = Tea::find($teaId);
         $teaStock = $tea->stock; 
        
-        $this->validate($request, [
-            'qty'=>'required|numeric|min:1|max:'.$teaStock
-        ]);
+        $validateRules = [ 
+            'quantity'=>'required|numeric|min:1|max:'.$teaStock
+        ];
+    
+        $customMessages = [
+            'max' => 'The Tea :attribute must less than Tea stock'
+        ];
+    
+        $this->validate($request, $validateRules, $customMessages);
 
         $user = Auth::user();
         $carts = $user->Cart;
 
             foreach ($carts as $cart) {
                 if($cart->pivot->tea_id == $teaId){
-                    $cart->pivot->quantity = $request->qty;
+                    $cart->pivot->quantity = $request->quantity;
                     $cart->pivot->update();
                 }
             }
@@ -127,7 +139,6 @@ class CartController extends Controller
     }
 
     public function checkoutCart(){
-            // kemungkinan akan dihapus beserta method func yang menggunakan method post
            if(Auth::user() == null) return redirect()->route('home');
 
            $user = Auth::user();

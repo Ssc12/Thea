@@ -28,6 +28,12 @@
               <input type="file" value="{{$tea->image}}" class="form-control-file" name="image"><br><br>
             </div>
 
+            <div class="error">
+              @if($errors->any())
+                  {{$errors->first()}}
+              @endif
+            </div>
+
             <div class="col">
               <button type="submit" class="btn btn-danger">
                 {{ _('Update Tea')}}

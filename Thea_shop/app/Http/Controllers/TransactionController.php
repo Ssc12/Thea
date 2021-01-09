@@ -28,14 +28,13 @@ class TransactionController extends Controller
         return view('user.transaction_detail',[
             'order' => $id
         ]);
-
     }
 
     public function viewAllUserTransaction(){
         if(Auth::user() == null) return redirect()->route('home');
         if(Auth::user()->role_id != 2) return redirect()->route('home');
         
-        $transaction = Order::all();
+        $transaction = Order::all()->reverse() ;
         return view('admin.transaction', ['transactions' => $transaction]);
     }
 }

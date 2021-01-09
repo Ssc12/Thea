@@ -25,29 +25,29 @@
                     </div>
                     <div>
                         <div class="label">
-                            Nama
+                            Name
                         </div>
-                        <input type="text" name="username" id="" class="input">
+                        <input type="text" name="username" id="" class="input" value="{{old('username')}}">
                     </div>
                     <div>
                         <div class="label">
                             Email
                         </div>
-                        <input type="text" name="email" id="" class="input">
+                        <input type="text" name="email" id="" class="input" value="{{old('email')}}">
                     </div>
                     <div>
                         <div class="label">
-                            Nomor Telepon
+                            Phone Number
                         </div>
-                        <input type="text" name="phone_number" id="" class="input">
+                        <input type="text" name="phone_number" id="" class="input" value="{{old('phone_number')}}">
                     </div>
                     <div>
                         <div class="label">
                             Password
                         </div>
-                        <input type="password" name="password" id="" class="input">
+                        <input type="password" name="password" id="" class="input" value="{{old('password')}}">
                     </div>
-                    <div class="regulations">Dengan mendaftar, saya menyetujui Syarat dan Ketentuan serta Kebijakan Privasi.
+                    <div class="regulations">By registering, I agree to the terms and conditions and Privacy Policy.
                     </div>
                     <div class="button">
                         <button type="submit" value="register" class="">Register</Button>

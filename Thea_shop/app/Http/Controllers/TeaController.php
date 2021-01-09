@@ -35,6 +35,14 @@ class TeaController extends Controller
         if(Auth::user() == null) return redirect()->route('home');
         if(Auth::user()->role_id != 2) return redirect()->route('home');
 
+        $this->validate($request, [
+            'teaName'=>'required|min:1|max:30',
+            'teaPrice'=>'required|numeric',
+            'teaDesc'=>'required|min:1',
+            'teaStock'=>'required|numeric',
+            'image'=>'required|image'
+        ]);
+
         $tea = new \App\Tea;
         $tea->name = $request->teaName;
         $tea->price = $request->teaPrice;
@@ -75,6 +83,14 @@ class TeaController extends Controller
             $request->image->move(public_path('image/tea'), $imageFullName);
             $tea_photo = 'image/tea/'.$imageFullName;
         }
+
+        $this->validate($request, [
+            'teaName'=>'required|min:1|max:30',
+            'teaPrice'=>'required|numeric',
+            'teaDesc'=>'required|min:1',
+            'teaStock'=>'required|numeric',
+            'image'=>'image'
+        ]);
 
         $tea = Tea::findOrFail($tea_id)->update([
             'name' => $request->teaName,

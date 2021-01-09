@@ -15,6 +15,11 @@
             </div>
 
             <div class="cart-list">
+                <div class="error">
+                    @if($errors->any())
+                        {{$errors->first()}}
+                    @endif
+                </div>
             @foreach ($carts as $cart)
                 <div class="cart-grid-container">
                     <div class="cart-image">
@@ -29,7 +34,7 @@
                             {{ csrf_field() }}
                             <div class="cart-qty-container">  
                                 <p style="margin-right: 20px; margin-top:5px">Quantity :</p>   
-                                <input type="number" name="qty" id="" value={{$cart->pivot->quantity}}>
+                                <input type="number" name="quantity" id="" value={{$cart->pivot->quantity}}>
                                 <button class="btn btn-primary" value="Update Cart Quantity" type="submit" style="margin-left: 20px">Update Quantity</button> 
                             </div>  
                         </form> 
@@ -41,10 +46,7 @@
                         </form>
                     </div>  
                 </div> 
-            @endforeach
-            @if($errors->any())
-            {{$errors->first()}}          
-             @endif   
+            @endforeach  
             </div>
 
             <div class="checkout-sidebar">

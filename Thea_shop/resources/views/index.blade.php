@@ -34,7 +34,7 @@
 
     <div>
         <div class ="Iheader">
-          Recommend for You
+          Recommended for You
         </div>
         <div class="Ibody">
             @foreach ($recommends as $recommend)

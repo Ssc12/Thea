@@ -43,8 +43,8 @@
                                     <label for="">Quantity : </label>
                                 </div>
                                 <div class="ml-3">
-                                    <input type="number" name="qty" id="" class="form-control @error('qty') is-invalid @enderror">
-                                        @error('qty')
+                                    <input type="number" name="quantity" id="" class="form-control @error('quantity') is-invalid @enderror">
+                                        @error('quantity')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>       
@@ -88,6 +88,7 @@
         </div>
     </div>
 
+    @if (Auth::check() && Auth::user()->role_id == 1)
     <div class="commentContainer">
         <h3>Comment : </h3>
         
@@ -136,5 +137,5 @@
             @endforeach
         @endif
     </div>
-
+    @endif
 @endsection
