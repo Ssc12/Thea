@@ -1,13 +1,12 @@
 @extends('template')
 
-{{-- kalau gk ada cart tampilin gambar no shopping cart --}}
 @section('content')
 
     @if(sizeof($carts)>0)
         <h1 style="text-align: left">My Cart</h1>
 
         <div class="main-grid-container">
-            {{-- buat button hapus semua --}}
+            
             <div style="border: 1px solid; padding:5px;">
                 <form method="POST" action="{{ url('/cart/deleteAll/') }}" role="form">
                     {{ csrf_field() }}
@@ -15,7 +14,6 @@
                 </form>
             </div>
 
-            {{-- buat list cart --}}
             <div class="cart-list">
             @foreach ($carts as $cart)
                 <div class="cart-grid-container">
@@ -33,7 +31,7 @@
                                 <p style="margin-right: 20px; margin-top:5px">Quantity :</p>   
                                 <input type="number" name="qty" id="" value={{$cart->pivot->quantity}}>
                                 <button class="btn btn-primary" value="Update Cart Quantity" type="submit" style="margin-left: 20px">Update Quantity</button> 
-                            </div>    
+                            </div>  
                         </form> 
 
                         <br>
@@ -42,11 +40,13 @@
                             <button class="btn btn-danger" value="Delete from Cart" type="submit">Remove</button>
                         </form>
                     </div>  
-                </div>
+                </div> 
             @endforeach
+            @if($errors->any())
+            {{$errors->first()}}          
+             @endif   
             </div>
 
-            {{-- buat checkout--}} 
             <div class="checkout-sidebar">
 
                 <div class="cart-total">

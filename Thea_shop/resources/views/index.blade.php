@@ -10,7 +10,7 @@
 
     <div>
         <div class ="Iheader">
-          Produk Populer
+          Popular Products
         </div>
         <div class="Ibody">
             @foreach ($populars as $popular)
@@ -34,7 +34,7 @@
 
     <div>
         <div class ="Iheader">
-          Rekomendasi untuk kamu
+          Recommend for You
         </div>
         <div class="Ibody">
             @foreach ($recommends as $recommend)

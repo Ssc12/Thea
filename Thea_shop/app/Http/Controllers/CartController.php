@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\User;
+use App\Tea;
 
 class CartController extends Controller
 {
@@ -12,8 +13,17 @@ class CartController extends Controller
         if(Auth::user() == null) return redirect()->route('home');
 
         $user = Auth::user();
-          
         $carts = $user->Cart;
+
+        foreach ($carts as $cart) {
+            $tea = Tea::find($cart->pivot->tea_id);
+            $teaStock = $tea->stock;
+            if($cart->pivot->quantity > $teaStock){
+                $cart->pivot->quantity = $teaStock;
+                $cart->pivot->update();
+            }
+        }
+
         $total=0;
 
         foreach ($carts as $cart) {
@@ -30,10 +40,11 @@ class CartController extends Controller
     public function addToCart($teaId,Request $request){
         if(Auth::user() == null) return redirect()->route('home');
 
-        // cek quantity gk boleh melebihi stock
+        $tea = Tea::find($teaId);
+        $teaStock = $tea->stock; 
 
         $this->validate($request, [
-            'qty'=>'required|numeric|min:1'
+            'qty'=>'required|numeric|min:1|max:'.$teaStock
         ]);
         
         $user = Auth::user();
@@ -67,9 +78,11 @@ class CartController extends Controller
     public function updateCart($teaId,Request $request){
         if(Auth::user() == null) return redirect()->route('home');
 
-        // cek quantity gk boleh melebihi stock
+        $tea = Tea::find($teaId);
+        $teaStock = $tea->stock; 
+       
         $this->validate($request, [
-            'qty'=>'required|numeric|min:1'
+            'qty'=>'required|numeric|min:1|max:'.$teaStock
         ]);
 
         $user = Auth::user();
@@ -117,8 +130,6 @@ class CartController extends Controller
             // kemungkinan akan dihapus beserta method func yang menggunakan method post
            if(Auth::user() == null) return redirect()->route('home');
 
-           // cek quantity gk boleh melebihi stock
-
            $user = Auth::user();
            $carts = $user->Cart;
 
@@ -138,7 +149,6 @@ class CartController extends Controller
 
                $total=$total + ($cart->price * $detail->quantity);
 
-               // Setelah udh kurangi stock dari setiap tea yang dibeli
                $cart->stock = $teaStock - $detail->quantity;
                $cart->update();
                $cart->pivot->delete();
