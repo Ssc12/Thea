@@ -15,7 +15,7 @@ class TransactionController extends Controller
         $user = Auth::user();
         if($user == null) return redirect()->route('home');
 
-        $transactions = \App\Order::where('user_id',$user->id)->get();
+        $transactions = \App\Order::where('user_id',$user->id)->get()->reverse();
 
         return view('user.history',[
             'transactions' => $transactions
