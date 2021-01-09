@@ -104,7 +104,7 @@
                         <div class="label">
                             Comment :
                         </div>
-                        <textarea name="comment" id="" cols="119" rows="4"></textarea>
+                        <textarea name="comment" id="" cols="110" rows="4"></textarea>
                     </div>
                     <button type="submit" value="Login" class="">Comment</Button>
                 </form>
