@@ -22,7 +22,7 @@ class OrderSeeder extends Seeder
         $detail->quantity = 10;
         $detail->save();
 
-        $transaction->total_price = 150000;
+        $transaction->total_price = 100000;
         $transaction->save();
     }
 }

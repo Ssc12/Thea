@@ -41,8 +41,9 @@ class TeaController extends Controller
         $tea->description = $request->teaDesc;
         $tea->stock = $request->teaStock;
 
-        $path = $request->file('image')->store('/image/tea/'.$request->teaName, 'public');
+        $path = $request->file('image')->store('/image/tea/', 'public');
         $tea->image = "storage/".$path;
+
         $tea->save();
 
         return redirect()->route('home');

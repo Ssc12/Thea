@@ -121,7 +121,7 @@
                             @if ($review->profile_pic == null)
                                 <img src="{{asset('image/profile/profile.png')}}" alt="">
                             @else
-                                <img src="{{asset($review->profile_pic)}}" alt="">
+                                <img src="{{asset('/storage/'.$review->profile_pic)}}" alt="">
                             @endif
                         </div>
 

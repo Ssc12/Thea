@@ -5,7 +5,7 @@
         @foreach ($teas as $tea)
         <div class="ICard">
             <a href= {{ route('tea_detail', ['tea'=>$tea->id]) }}>
-                <img  class="img-fluid" src= {{ asset($tea->image) }} alt="">
+                <img  class="img-fluid" src={{ asset($tea->image) }} alt="">
                 <div class="ICard-body">
                     <p>{{$tea->name}}</p>
                     <p>Rp.{{$tea->price}}</p>
